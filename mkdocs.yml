@@ -1,0 +1,15 @@
+site_name: Thomas Tu M.S. Thesis Proposal
+
+plugins:
+  - search
+  - git-revision-date-localized
+  - bibtex:
+      bib_file: "references.bib"
+      cite_style: "pandoc"
+
+markdown_extensions:
+  - footnotes
+  - admonition
+
+theme:
+  name: 'gitbook'
