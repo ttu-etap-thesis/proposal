@@ -4,9 +4,6 @@ use_directory_urls: true
 
 plugins:
   - git-revision-date-localized
-  # - bibtex:
-  #     bib_file: "references.bib"
-  #     cite_style: "pandoc"
 
 markdown_extensions:
   - footnotes
