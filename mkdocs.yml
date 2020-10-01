@@ -1,7 +1,8 @@
 site_name: Thomas Tu M.S. Thesis Proposal
 
+use_directory_urls: true
+
 plugins:
-  - search
   - git-revision-date-localized
   - bibtex:
       bib_file: "references.bib"
@@ -13,3 +14,4 @@ markdown_extensions:
 
 theme:
   name: 'gitbook'
+  custom_dir: themes/gitbook
