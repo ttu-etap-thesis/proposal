@@ -6,7 +6,8 @@ Many new mobility measures to increase transportation efficiency, or reduce tran
 
 ### Major Challenges
 
-
+- Population centers are sprawling and have longer/more distant commute times
+- Commerce highly dependenton Arterial roadways
 
 ## Rural Mobility
 
