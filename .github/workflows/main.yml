@@ -18,7 +18,7 @@ jobs:
         architecture: 'x64'
     - uses: ammaraskar/sphinx-action@master
       with:
-        docs-folder: "docs/"
+        docs-folder: "./"
         pre-build-command: "apt-get update -y && apt-get install -y plantuml latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended pandoc"
     - uses: actions/upload-artifact@v1
       with:
