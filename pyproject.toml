@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "thesis-proposal"
+version = "0.1.0"
+description = "Thomas Tu's ETAP Thesis proposal."
+authors = ["Thomas Tu <tt169@humboldt.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Sphinx = "^3.4.3"
+nbsphinx = "^0.8.0"
+graphviz = "^0.16"
+sphinxcontrib-plantuml = "^0.19"
+sphinxcontrib-bibtex = "^2.1.4"
+recommonmark = "^0.7.1"
+dynaconf = "^3.1.2"
+livereload = "^2.6.3"
+
+[tool.poetry.dev-dependencies]
+rstcheck = "^3.3.1"
+snooty-lextudio = "^1.8.6-alpha.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

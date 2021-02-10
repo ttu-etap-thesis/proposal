@@ -1,0 +1,7 @@
+dynaconf
+nbsphinx
+graphviz
+sphinxcontrib-plantuml
+sphinxcontrib-bibtex
+recommonmark
+sphinx-book-theme==0.0.36
