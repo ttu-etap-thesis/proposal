@@ -13,14 +13,24 @@ Public Policy Context
 ---------------------
 
 - SB-743 shifts transportation project analysis from level of service to VMT, which electrification doesn't solve; more options needed for VMT reduction
-- 
+- - level of service : might mean congestion in urban areas, but mobility (can people get to where they need) is another measure
+- Problems with focusing on VMT reduction
+  - Geography can necessitate increases in VMT
+  - Populations already lacking mobility access can't/shouldn't reduce VMT
 
-Societal Issues from TNCs
--------------------------
+
+Limitations of Private VMTs
+---------------------------
 
 - Not obligated to serve areas that aren't profitable
-- Worker rights issues exacerbating income inequality and what Swisher/Galloway dub the "menace economy"
+- ~Worker rights issues exacerbating income inequality and what Swisher/Galloway dub the "menace economy"~
 
+.. note:: Revision Comments
+
+  - Climate angle: DRPT is a means of getting populations out of vehicle ownership; counterfactual would be purchasing +operating a car.  If fleet serving mobility is also electric, then you are also fuel switching. More opportunity in rural regions because IMC is negative for gasoline powered cars.
+  - Societal angle: this is another tool/project to increase access and accessibility to public transportation infrastructure.
+    - How much further could PT push into rural regions if you had some kind of DRPT system?
+      - How much more could we expand PT?
 
 Purpose
 -------
