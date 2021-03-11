@@ -14,10 +14,10 @@ sphinxcontrib-bibtex = "^2.1.4"
 recommonmark = "^0.7.1"
 dynaconf = "^3.1.2"
 livereload = "^2.6.3"
+docxsphinx = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 rstcheck = "^3.3.1"
-snooty-lextudio = "^1.8.6-alpha.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

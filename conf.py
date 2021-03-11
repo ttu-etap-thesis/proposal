@@ -64,7 +64,7 @@ extensions = [
     # Internal Header References
     "sphinx.ext.autosectionlabel",
     # For word documents
-    "docxbuilder",
+    "docxsphinx",
 ]
 
 # TODO: Add in other extensions in the toml file

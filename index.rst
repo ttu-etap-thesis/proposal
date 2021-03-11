@@ -7,6 +7,6 @@ ETAP M.S. Thesis Proposal
    :maxdepth: 2
    :caption: Contents:
 
-   introduction
-   proposal
+   01_introduction
+   02_proposal
    zreferences

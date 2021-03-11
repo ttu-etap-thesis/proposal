@@ -1,6 +1,8 @@
 Proposal
 ========
 
+Evaluation of demand responsive mobility 
+
 The central question of this thesis is as follows: Could public DRT services meet mobility demands in in lieu of existing personal vehicle travel and existing fixed-route public transit systems?
 
 Additionally, this thesis aims to understand non-mobility issues of a public DRT services such as:
