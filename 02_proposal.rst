@@ -1,9 +1,13 @@
 Proposal
 ========
 
-Evaluation of demand responsive mobility 
+The hope for this thesis is to answer the following question
 
-The central question of this thesis is as follows: Could public DRT services meet mobility demands in in lieu of existing personal vehicle travel and existing fixed-route public transit systems?
+.. epigraph::
+
+  Under what circumstances could a public demand responsive transportation system serve as a viable alternative for providing rural public transit access?
+
+While the motivating question is in respect to rural communities, the proposed analysis aims to focus on Humboldt County as a representative community for rural transportation challenges.
 
 Additionally, this thesis aims to understand non-mobility issues of a public DRT services such as:
 
@@ -13,18 +17,23 @@ Additionally, this thesis aims to understand non-mobility issues of a public DRT
 Methods and Approaches
 ----------------------
 
-The proposed approach is to leverage an :abbr:`ABM (Agent Based Model)` :cite:`Evans2013` to simulate different DRT fleets and designs in a set of non metropolitan population centers.  The ABM will simulate many "possible realities" of how different population characteristics such as mode choice preferences and different geospatial distributions of travel demand origins and destinations would affect adoption and level of service.  Travel demand (defined as the set of tours each agent in a region requires in a 24 hour period, where each tour is composed of multiple trips each leg of which has a travel mode) will initially be characterized by public survey data such as the California Household Travel Survey :cite:`NREL2017`, and the national transit database :cite:`FederalTransitAdministration2020`.  An overview of this approach is shown in :numref:`system-architecture`.
-
-.. figure:: figures/TTU-DRPT-Thesis.png
-  :name: system-architecture
-
-  Scenarios will be generated from combining characteristics of different modules as shown above.  The full result size will be the cross product of Regions x Populations x Strategies x Fleet Designs.  Aggregate results will be used to determine where a theoretical demand responsive public transit system could be used to effectively provide local mobility services.
+The proposed approach is to leverage an :abbr:`ABM (Agent Based Model)` :cite:`Evans2013` to simulate a demand-responsive public transit fleet as a source of transportation supply.  The goal of this modeling is to evaluate performance metrics such as wait time, passengers miles served, and system costs.  Transportation demand will be simulated using survey data based off of public survey data such as the California Household Travel Survey :cite:`NREL2017`, and publicly available demographic data sources (e.g. the census.) 
 
 Three critical components will make up the bulk majority of this thesis.
 
 - Population Synthesis
 - Transportation modeling & Scenario analysis
 - Economic Analysis
+
+Existing agent-based modeling tools will be used for the BEAM model. 
+
+Travel demand (defined as the set of tours each agent in a region requires in a 24 hour period, where each tour is composed of multiple trips each leg of which has a travel mode) will initially be characterized by public survey data such as the California Household Travel Survey :cite:`NREL2017`, and the national transit database :cite:`FederalTransitAdministration2020`.  An overview of this approach is shown in :numref:`system-architecture`.
+
+.. figure:: figures/TTU-DRPT-Thesis.png
+  :name: system-architecture
+
+  Scenarios will be generated from combining characteristics of different modules as shown above.  The full result size will be the cross product of Regions x Populations x Strategies x Fleet Designs.  Aggregate results will be used to determine where a theoretical demand responsive public transit system could be used to effectively provide local mobility services.
+
 
 Population Synthesis
 ::::::::::::::::::::
@@ -92,3 +101,8 @@ The approach above lends itself to future work, which may or may not be addresse
 - What are the potential emissions benefits or harms in transportation deserts as a result of DRT services compared to traditional public transit systems and personal vehicle travel?
 - What are social and cultural barriers to adopting and accepting new mobility systems over personal vehicle ownership? 
 - What public safety implications are there from expanded deployments of shared fleets over a highly distributed personal fleet?
+
+
+.. rubric:: Footnotes
+
+.. [#] https://activitysim.github.io/
