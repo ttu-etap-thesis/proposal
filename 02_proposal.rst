@@ -1,38 +1,31 @@
 Proposal
 ========
 
-The hope for this thesis is to answer the following question
-
-.. epigraph::
-
-  Under what circumstances could a public demand responsive transportation system serve as a viable alternative for providing rural public transit access?
-
-While the motivating question is in respect to rural communities, the proposed analysis aims to focus on Humboldt County as a representative community for rural transportation challenges.
+The focus of this thesis is to model a fleet of non-autonomous vehicles dispatched within a rural geography, responding to a pool of ride hailing requests.  The purpose of this thesis is to determine circumstances in which a public demand responsive fleet can reliably serve rural mobility needs.  While the motivating question is in respect to rural communities, the proposed analysis aims to focus on Humboldt County as a representative community for rural transportation challenges.
 
 Additionally, this thesis aims to understand non-mobility issues of a public DRT services such as:
 
 - What fiscal impacts or pressures would a public DRT service create for local transportation budgets?
-- How would such a system perform in rural or small population centers which have been historically under-served by public transit?
+- What technological, operational and political barriers exist in deploying a public DRT program?
 
 Methods and Approaches
 ----------------------
 
-The proposed approach is to leverage an :abbr:`ABM (Agent Based Model)` :cite:`Evans2013` to simulate a demand-responsive public transit fleet as a source of transportation supply.  The goal of this modeling is to evaluate performance metrics such as wait time, passengers miles served, and system costs.  Transportation demand will be simulated using survey data based off of public survey data such as the California Household Travel Survey :cite:`NREL2017`, and publicly available demographic data sources (e.g. the census.) 
+The proposed approach is to leverage an :abbr:`ABM (Agent Based Model)` :cite:`Evans2013` to simulate a demand-responsive public transit fleet as a source of transportation supply.  Agent based models have historically been used extensively in transportation modeling and planning activities :cite:`Kagho2020`.  
 
-Three critical components will make up the bulk majority of this thesis.
+The goal of this modeling is to evaluate performance metrics such as wait time, passengers miles served, and system costs of a demand responsive public transit fleet trying to serve different levels of community mobility demand.  This modeling work can be broken into two modeling activities:
 
-- Population Synthesis
-- Transportation modeling & Scenario analysis
-- Economic Analysis
+- Creation of mobility demand scenarios which capture varying levels of demand across different population characteristics and varying activity schedules (i.e. population synthesis)
+- Trip modeling based on a dispatchable fleet of vehicles providing ride pooling with scenarios varying across fleet size and individual vehicle specifications.
 
-Existing agent-based modeling tools will be used for the BEAM model. 
+Each mobility demand scenarios will be fed into the ABM as inputs, and evaluated against a fleet attempting to fulfill ride requests.  Existing tools such as activitysim [#]_ will be used to generate activity schedules and synthesize populations. In order to model transportation supply characteristics, this thesis intends to leverage existing ABM tools such as the BEAM model :cite:`BEAM`.  For example, a single demand scenario might describe a population where by 20% of a community intends to use the DRT service for a single leg in their daily schedules.  A single fleet scenario might describe a fleet of 10 micro-shuttles capable of pooling up to 10 rides each. 
 
-Travel demand (defined as the set of tours each agent in a region requires in a 24 hour period, where each tour is composed of multiple trips each leg of which has a travel mode) will initially be characterized by public survey data such as the California Household Travel Survey :cite:`NREL2017`, and the national transit database :cite:`FederalTransitAdministration2020`.  An overview of this approach is shown in :numref:`system-architecture`.
+By evaluating different fleets across demand scenarios, this thesis will attempt to identify fleet characteristics needed to meet mobility needs of many different potential populations with varying levels of demand for a public mobility service.
 
 .. figure:: figures/TTU-DRPT-Thesis.png
   :name: system-architecture
 
-  Scenarios will be generated from combining characteristics of different modules as shown above.  The full result size will be the cross product of Regions x Populations x Strategies x Fleet Designs.  Aggregate results will be used to determine where a theoretical demand responsive public transit system could be used to effectively provide local mobility services.
+  Scenarios will be generated from combining characteristics of different modules as shown above.  The full result size will be the cross product of Populations x Fleet Designs.  Aggregate results will be used to determine where a theoretical demand responsive public transit system could be used to effectively provide local mobility services.
 
 
 Population Synthesis
@@ -49,45 +42,24 @@ Three components are needed to create a synthetic population:
 2.  Points of interest located within the network in the travel analysis zone
 3.  Travel diaries describing trip behavior for individuals
 
-Population characteristics such as household size, employment status, age, race and income will be post-stratified and distributed via proportions to synthetic populations at a census block level.
-
-Points of interest (i.e. travel locations) will be generated from publicly available commercial mapping data and used as destinations and origins for travel tours.
-
-Finally, travel diaries will be assigned based on travel survey data from the California Household Travel Survey.
-
-These data will be compiled into a dimensional datawarehouse that can be used to generate inputs for the ABM software.
+Population characteristics such as household size, employment status, age, race and income will be post-stratified and distributed via proportions to synthetic populations at a census block level.  Points of interest (i.e. travel locations) will be generated from publicly available commercial mapping data and used as destinations and origins for travel tours.  Finally, travel diaries will be assigned based on travel survey data from sources such as the California Household Travel Survey :cite:`NREL2017`.  These data will be compiled into a dimensional datawarehouse that can be used to generate inputs for the ABM software representing different levels of demand for the DRPT service.
 
 Trip Mode modeling & Scenario analysis
 ::::::::::::::::::::::::::::::::::::::
 
-The central focus of this thesis is to evaluate a public transit fleet operating like a modern TNC.  TNC modeling in ABMs has been implemented in open source ABMs such as MatSim and ActivitySim.  The DRPT fleet in this thesis will strongly resemble a TNC with constraints based on real-world economic and implementation constraints.  Constraints that existing TNCs don't face such as fixed fleet size, higher operator costs, are examples of issues which might be modeled.  A critical part of this thesis will be to explore sensitivities from dimensions that drive mobility mode choice.  Multiple uncertainties present major challenges in this effort.
+The central focus of this thesis is to evaluate a public transit fleet operating like a modern TNC.  TNC modeling in ABMs has been implemented in open source ABMs such as BEAM :cite:`BEAM`.  The DRPT fleet in this thesis will strongly resemble a TNC with constraints based on real-world economic and implementation constraints.  Constraints that existing TNCs don't face such as fixed fleet size, higher operator costs, are examples of issues which might be modeled. 
 
-- One major limitation will be the need to evaluate how a DRPT option would be chosen between other trip modes.  To address this uncertainty, multiple "scoring" functions will be used drawn from existing literature.  This might be driven by total trip time, level of service/congestion, pricing, or subjective measures such as perceived convenience that could be modeled as ordinal numbers.
-- Multiple fare collection strategies.  Fixed fare with limited transit zones, vs dynamic distance and demand driven pricing are both interesting deployment options or a mix of the two options should both be explored.
 - Different types of fleets could be deployed with varying costs - a larger fleet of small microshuttles would operate differently from a small fleet of larger buses.
 - Different routing and dispatch strategies should be evaluated.  Real world deployments such as RideWithVia's SMART ride program operate on a semi-fixed route which change based on time of day and demand, but TNCs like Uber and Lyft create completely dynamic stops and routes.
-
-
-Economic Analysis
-:::::::::::::::::
-
-The ubiquitous presence of TNC operations has more than established the technical feasibility of a widespread responsive transit system.  The central concern is where could such a system produce cost savings, or cost effective expanded mobility access.  Two economic analyses are of concern:
-
-1) What are the impacts on household travel spending?
-2) What are the impacts on local agency budgets?
-
-A census of public transit budgets will be compiled into a central source and used to evaluate plausible spending and economic viability at a transit-agency level of detail.  
-
 
 Goals and Desired Outcomes
 ==========================
 
-This thesis aims to produce the following artifacts:
+This thesis aims to produce the following artifacts
 
-- A model for evaluating DRT cost effectiveness in various contexts of geographical and population characteristics.
-- A catalog of different DRT service architectures and designs (differing on vehicle size, fleet size, dispatch methods, payment schedules, and potential coverage goals.)
-- Estimates of regionally specific travel demand profiles for non-metropolitan California communities based on household survey data, and determine required DRT fleet characteristics to meet said travel demand requirements
-- An extensible Matsim or activitysim compatible framework for public consumption to evaluate potential of new demand responsive public transit systems.
+- A model for evaluating DRT cost effectiveness for different population characteristics.
+- A catalog of different DRT service architectures and designs (differing on vehicle size, fleet size, dispatch methods, payment schedules, and potential coverage goals - i.e. how large can a service area get?)
+- An extensible BEAM compatible framework for public consumption to evaluate potential of new demand responsive public transit systems.
   - An extensible tool for generating populations that could plug in publicly accessible data or more granular, localized, representative survey data.
 
 Potential Expanded Scope of Work
