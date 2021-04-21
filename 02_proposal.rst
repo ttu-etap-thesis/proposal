@@ -1,32 +1,26 @@
 Proposal
 ========
 
-The focus of this thesis is to model a fleet of non-autonomous vehicles dispatched within a rural geography, responding to a pool of ride hailing requests.  The purpose of this thesis is to determine circumstances in which a public demand responsive fleet can reliably serve rural mobility needs.  While the motivating question is in respect to rural communities, the proposed analysis aims to focus on Humboldt County as a representative community for rural transportation challenges.
-
-Additionally, this thesis aims to understand non-mobility issues of a public DRT services such as:
-
-- What fiscal impacts or pressures would a public DRT service create for local transportation budgets?
-- What technological, operational and political barriers exist in deploying a public DRT program?
+This thesis will focus on modeling a microtransit service providing Mobility-on-Demand (MOD) services within Humboldt county to evaluate circumstances where public microtransit could reliably provide shorter trip times and lower costs to serve in comparison to existing fixed route transit services.  Though the proposed analysis focuses on Humboldt county, the hope is to gain some understanding of better approaches to address mobility challenges faced by rural and micropolitan communities. Additionally, this thesis aims to understand the economic and operational challenges in deploying a microtransit service from the perspective of public transit agencies.
 
 Methods and Approaches
 ----------------------
 
-The proposed approach is to leverage an :abbr:`ABM (Agent Based Model)` :cite:`Evans2013` to simulate a demand-responsive public transit fleet as a source of transportation supply.  Agent based models have historically been used extensively in transportation modeling and planning activities :cite:`Kagho2020`.  
+One common approach in modeling transportation systems is to use :abbr:`ABM (Agent Based Models)` :cite:`Evans2013`. ABMs have historically been used to model and understand traveler behaviors :cite:`Kagho2020` and emerging/novel transportation services that would be expensive or impossible to deploy in the real world such as shared electric autonomous vehicles :cite:`Sheppard2019`.  ABMs are well suited to understand systems where many agents with a wide array of individual preferences operate independently under shared, collective constraints.  A transportation ABM typically works by encoding a population of travelers (i.e. "agents" which have a demand for transportation) and a supply of travel modes over a physical geography (a :abbr:`TAZ (Transportation Analysis Zone)` ) and simulating a series of trips (i.e. "schedules") for each individual agent in the TAZ over the course of some time where travelers decide on a set of available mode choices based on a configurable mode choice preference function.  Travelers must share the same physical space (roads), and in the case of public transit services or ride hailing services, the same pool of vehicles.  The collective behaviors and actions of individual agent interactions can be used to describe system level characteristics.  Some examples include traffic flow and congestion for some schedule of travel demand and transportation supply, average wait times for public transit modes, origin/destination distributions, and collective mode choice preferences.
 
-The goal of this modeling is to evaluate performance metrics such as wait time, passengers miles served, and system costs of a demand responsive public transit fleet trying to serve different levels of community mobility demand.  This modeling work can be broken into two modeling activities:
+This thesis proposes to build an ABM to study a transportation network in Humboldt County with a public microtransit service.  The goal of the ABM is to evaluate wait and trip times and system costs of a hypothetical microtransit fleet under different scenarios of fleet characteristics and ridership demand and mode-choice preferences.  Different demand and supply scenarios will be compared against existing performance metrics from publicly available transit agency audits [#]_.  
 
-- Creation of mobility demand scenarios which capture varying levels of demand across different population characteristics and varying activity schedules (i.e. population synthesis)
-- Trip modeling based on a dispatchable fleet of vehicles providing ride pooling with scenarios varying across fleet size and individual vehicle specifications.
+The proposed scope of work includes two major modeling activities:
 
-Each mobility demand scenarios will be fed into the ABM as inputs, and evaluated against a fleet attempting to fulfill ride requests.  Existing tools such as activitysim [#]_ will be used to generate activity schedules and synthesize populations. In order to model transportation supply characteristics, this thesis intends to leverage existing ABM tools such as the BEAM model :cite:`BEAM`.  For example, a single demand scenario might describe a population where by 20% of a community intends to use the DRT service for a single leg in their daily schedules.  A single fleet scenario might describe a fleet of 10 micro-shuttles capable of pooling up to 10 rides each. 
+- Creation of different mobility demand scenarios which capture varying levels of demand across different population characteristics and varying activity schedules (i.e. population synthesis)
+- Trip modeling based on a microtransit fleet with scenarios varying across fleet size and individual vehicle specifications.
 
-By evaluating different fleets across demand scenarios, this thesis will attempt to identify fleet characteristics needed to meet mobility needs of many different potential populations with varying levels of demand for a public mobility service.
+Each mobility demand scenarios will be fed into the ABM as inputs, and evaluated against a fleet attempting to fulfill ride requests.  Using activitysim [#]_, activity schedules and population characteristics will be synthesized to create different demand scenarios.  In order to model the Humboldt County transportation system, this thesis intends to leverage  the BEAM model [#]_ :cite:`BEAM`.  The BEAM model will be used to actually execute trips and mode choice selections for our synthetic populations.  The resultant model will report on the mode choice, wait times and travel times of microtransit modes, which will be used to estimate operating and long-term maintenance costs.
 
-.. figure:: figures/TTU-DRPT-Thesis.png
-  :name: system-architecture
+For example, a single demand scenario might describe a population where by 20% of a community intends to use the microtransit service for a single leg in their daily schedules.  A single fleet scenario might describe a fleet of 10 micro-shuttles capable of pooling up to 10 rides each.  BEAM would be used to simulate intra-TAZ trips and schedules within the Humboldt County area to calculate ridership levels, wait times, travel times of the microtransit service.  Using the modeled travel data, a bottom-up cost estimate would be used to build up annualized system costs associated with running the microtransit service.  Different scenarios would be analyzed and compared against existing costs and performance metrics of various HTA services.
 
-  Scenarios will be generated from combining characteristics of different modules as shown above.  The full result size will be the cross product of Populations x Fleet Designs.  Aggregate results will be used to determine where a theoretical demand responsive public transit system could be used to effectively provide local mobility services.
 
+----------------------------------------
 
 Population Synthesis
 ::::::::::::::::::::
@@ -47,24 +41,29 @@ Population characteristics such as household size, employment status, age, race 
 Trip Mode modeling & Scenario analysis
 ::::::::::::::::::::::::::::::::::::::
 
-The central focus of this thesis is to evaluate a public transit fleet operating like a modern TNC.  TNC modeling in ABMs has been implemented in open source ABMs such as BEAM :cite:`BEAM`.  The DRPT fleet in this thesis will strongly resemble a TNC with constraints based on real-world economic and implementation constraints.  Constraints that existing TNCs don't face such as fixed fleet size, higher operator costs, are examples of issues which might be modeled. 
+The central focus of this thesis is to evaluate a public transit fleet operating like a modern TNC.  TNC modeling in ABMs has been implemented in open source ABMs such as BEAM :cite:`BEAM`.  The microtransit fleet in this thesis will strongly resemble a TNC with constraints based on real-world economic and implementation constraints.  Constraints that existing TNCs don't face such as fixed fleet size, higher operator costs, are examples of issues which might be modeled. 
 
 - Different types of fleets could be deployed with varying costs - a larger fleet of small microshuttles would operate differently from a small fleet of larger buses.
 - Different routing and dispatch strategies should be evaluated.  Real world deployments such as RideWithVia's SMART ride program operate on a semi-fixed route which change based on time of day and demand, but TNCs like Uber and Lyft create completely dynamic stops and routes.
+
+
+.. figure:: figures/TTU-DRPT-Thesis.png
+  :name: system-architecture
+
+  Scenarios will be generated from combining characteristics of different modules as shown above.  The full result size will be the cross product of Populations x Fleet Designs.  Aggregate results will be used to determine where a theoretical demand responsive public transit system could be used to effectively provide local mobility services.
 
 Goals and Desired Outcomes
 ==========================
 
 This thesis aims to produce the following artifacts
 
-- A model for evaluating DRT cost effectiveness for different population characteristics.
+- A conceptual model for evaluating DRT cost effectiveness for different population characteristics that can be used by transit agencies to justify or consider pilot programs.
 - A catalog of different DRT service architectures and designs (differing on vehicle size, fleet size, dispatch methods, payment schedules, and potential coverage goals - i.e. how large can a service area get?)
 - An extensible BEAM compatible framework for public consumption to evaluate potential of new demand responsive public transit systems.
   - An extensible tool for generating populations that could plug in publicly accessible data or more granular, localized, representative survey data.
 
 Potential Expanded Scope of Work
 --------------------------------
-
 The approach above lends itself to future work, which may or may not be addressed over the course of the thesis.  By expanding understanding into new mobility service deployments, these issues may be addressed in the future.
 
 - What grid services or burdens would a public DRT fleet present (both autonomous and non-autonomous fleets)?
@@ -74,7 +73,8 @@ The approach above lends itself to future work, which may or may not be addresse
 - What are social and cultural barriers to adopting and accepting new mobility systems over personal vehicle ownership? 
 - What public safety implications are there from expanded deployments of shared fleets over a highly distributed personal fleet?
 
-
 .. rubric:: Footnotes
 
+.. [#] https://hcaog.net/library?term_node_tid_depth=16
 .. [#] https://activitysim.github.io/
+.. [#] https://beam.lbl.gov/
