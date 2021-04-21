@@ -3,6 +3,20 @@ Proposal
 
 This thesis will focus on modeling a microtransit service providing Mobility-on-Demand (MOD) services within Humboldt county to evaluate circumstances where public microtransit could reliably provide shorter trip times and lower costs to serve in comparison to existing fixed route transit services.  Though the proposed analysis focuses on Humboldt county, the hope is to gain some understanding of better approaches to address mobility challenges faced by rural and micropolitan communities. Additionally, this thesis aims to understand the economic and operational challenges in deploying a microtransit service from the perspective of public transit agencies.
 
+
+Question : Where (and at what levels of ridership) would microtransit be more cost effective?
+
+Evaluation:
+
+- Existing data: https://cms7.fta.dot.gov/sites/fta.dot.gov/files/transit_agency_profile_doc/2019/9R02-91036.pdf
+- Using an ABS, compare cost effectiveness metrics
+
+Question : Where could microtransit supplement fixed-route services to serve more rides?
+
+Evaluation:
+
+- Simulate ridership demand profiles and compare fixed route + micro transit schedules to meet peak
+
 Methods and Approaches
 ----------------------
 
