@@ -56,8 +56,8 @@ Potential Expanded Scope of Work
 The approach above lends itself to future work, which may or may not be addressed over the course of the thesis.  By expanding understanding into new mobility service deployments, these issues may be addressed in the future.
 
 - What grid services or burdens would a public microtransit fleet enable (both autonomous and non-autonomous fleets)?
-  - What charging strategies should be deployed from medium and heavy duty commercial/public fleets?
-  - Is it economical or does it make sense to use fleets as grid producer-consumers? or should they remain strictly consumers?
+- What charging strategies should be deployed from medium and heavy duty commercial/public fleets?
+- Is it economical or does it make sense to use fleets as grid producer-consumers? or should they remain strictly consumers?
 - What are the potential emissions benefits or harms in transportation deserts as a result of DRT services compared to traditional public transit systems and personal vehicle travel?
 - What are social and cultural barriers to adopting and accepting new mobility systems over personal vehicle ownership? 
 - What public safety implications are there from expanded deployments of shared fleets over a highly distributed personal fleet?
