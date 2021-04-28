@@ -1,5 +1,5 @@
-ETAP M.S. Thesis Proposal
-*************************
+Evaluating the Potential for Micro-transit to Expand Mobility Access in Humboldt County
+***************************************************************************************
 
 .. see: sphinx-autobuild
 
